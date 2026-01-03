@@ -64,7 +64,7 @@ export function AboutSection() {
                 text="The Creative Mind"
                 encryptedClassName="text-white/30"
                 revealedClassName="text-white"
-                revealDelayMs={60}
+                revealDelayMs={40}
               />
             </h2>
 
