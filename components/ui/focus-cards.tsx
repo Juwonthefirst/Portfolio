@@ -1,11 +1,16 @@
 "use client";
 
-import React, { useState, memo, useRef } from "react";
+import { useState, memo, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import Image from "next/image";
 
 // SVG filter for displacement effect
-const DistortionFilter = memo(function DistortionFilter({ id }: { id: string }) {
+const DistortionFilter = memo(function DistortionFilter({
+  id,
+}: {
+  id: string;
+}) {
   return (
     <svg className="absolute w-0 h-0" aria-hidden="true">
       <defs>
@@ -30,19 +35,21 @@ const DistortionFilter = memo(function DistortionFilter({ id }: { id: string }) 
   );
 });
 
+type CardType = {
+  title: string;
+  src: string;
+  category?: string;
+  description?: string;
+  link?: string;
+};
+
 const Card = memo(function Card({
   card,
   index,
   hovered,
   setHovered,
 }: {
-  card: {
-    title: string;
-    src: string;
-    category?: string;
-    description?: string;
-    link?: string;
-  };
+  card: CardType;
   index: number;
   hovered: number | null;
   setHovered: React.Dispatch<React.SetStateAction<number | null>>;
@@ -58,13 +65,15 @@ const Card = memo(function Card({
         "rounded-2xl relative overflow-hidden h-80 md:h-[480px] w-full",
         "bg-black-50 border border-white/5",
         "transition-all duration-300 ease-out",
-        hovered !== null && hovered !== index && "blur-sm scale-[0.98] opacity-50"
+        hovered !== null &&
+          hovered !== index &&
+          "blur-sm scale-[0.98] opacity-50"
       )}
       data-cursor-hover
     >
       {/* SVG Filter for distortion */}
       <DistortionFilter id={filterId.current} />
-      
+
       {/* Glowing border gradient effect */}
       <GlowingEffect
         spread={40}
@@ -76,10 +85,11 @@ const Card = memo(function Card({
       />
 
       {/* Image with distortion effect on hover */}
-      <img
+      <Image
         src={card.src}
         alt={card.title}
         loading="lazy"
+        fill
         className={cn(
           "object-cover absolute inset-0 w-full h-full",
           "transition-all duration-500 ease-out",
@@ -98,7 +108,9 @@ const Card = memo(function Card({
       <div
         className={cn(
           "absolute inset-0 flex flex-col justify-end p-6 md:p-8 transition-all duration-300",
-          hovered === index ? "opacity-100 translate-y-0" : "opacity-70 translate-y-2"
+          hovered === index
+            ? "opacity-100 translate-y-0"
+            : "opacity-70 translate-y-2"
         )}
       >
         {/* Category */}
@@ -132,7 +144,9 @@ const Card = memo(function Card({
             className={cn(
               "mt-4 inline-flex items-center gap-2 text-sm font-nohemi font-medium text-white",
               "transition-all duration-200",
-              hovered === index ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2"
+              hovered === index
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-2"
             )}
           >
             View Project
@@ -164,14 +178,6 @@ const Card = memo(function Card({
     </div>
   );
 });
-
-type CardType = {
-  title: string;
-  src: string;
-  category?: string;
-  description?: string;
-  link?: string;
-};
 
 export function FocusCards({ cards }: { cards: CardType[] }) {
   const [hovered, setHovered] = useState<number | null>(null);

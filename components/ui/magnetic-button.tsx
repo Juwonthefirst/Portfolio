@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useRef, useState, useCallback, memo } from "react";
+import { useRef, useState, useCallback, memo } from "react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -48,13 +49,16 @@ export const MagneticButton = memo(function MagneticButton({
 
   const style = {
     transform: `translate(${position.x}px, ${position.y}px)`,
-    transition: position.x === 0 && position.y === 0 
-      ? "transform 0.5s cubic-bezier(0.33, 1, 0.68, 1)" 
-      : "transform 0.1s ease-out",
+    transition:
+      position.x === 0 && position.y === 0
+        ? "transform 0.5s cubic-bezier(0.33, 1, 0.68, 1)"
+        : "transform 0.1s ease-out",
   };
 
   const componentProps = {
-    ref: ref as React.RefObject<HTMLButtonElement & HTMLAnchorElement & HTMLDivElement>,
+    ref: ref as React.RefObject<
+      HTMLButtonElement & HTMLAnchorElement & HTMLDivElement
+    >,
     className: cn("inline-block", className),
     onMouseMove: handleMouseMove,
     onMouseLeave: handleMouseLeave,
@@ -64,6 +68,13 @@ export const MagneticButton = memo(function MagneticButton({
     ...(Component === "a" && href ? { href } : {}),
     ...props,
   };
+
+  if (Component === "a" && href)
+    return (
+      <Link {...componentProps} href={href}>
+        {children}
+      </Link>
+    );
 
   return <Component {...componentProps}>{children}</Component>;
 });

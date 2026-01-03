@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -127,8 +127,7 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
           ? char
           : char === " "
           ? " "
-          : scrambleCharsRef.current[index] ??
-            generateRandomCharacter(charset);
+          : scrambleCharsRef.current[index] ?? generateRandomCharacter(charset);
 
         return (
           <span

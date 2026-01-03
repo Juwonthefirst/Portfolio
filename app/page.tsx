@@ -27,8 +27,8 @@ export default function Home() {
 
         {/* Kinetic Marquee - Breaking the grid */}
         <div className="relative -my-8 md:-my-12 z-0">
-          <KineticMarquee 
-            text="CREATIVE DEVELOPER — BASED IN PARIS — DESIGN — CODE — "
+          <KineticMarquee
+            text="CREATIVE DEVELOPER — BASED IN LAGOS — EXPERIENCE — CODE — INNOVATE — "
             baseVelocity={0.5}
             skewFactor={0.8}
           />
@@ -42,9 +42,9 @@ export default function Home() {
 
         {/* Kinetic Marquee - Second instance */}
         <div className="relative -my-8 md:-my-12 z-0">
-          <KineticMarquee 
-            text="AVAILABLE FOR PROJECTS — LET'S COLLABORATE — "
-            baseVelocity={-0.4}
+          <KineticMarquee
+            text="AVAILABLE FOR PROJECTS — LET'S COLLABORATE — LET'S INNOVATE — "
+            baseVelocity={0.4}
             skewFactor={0.6}
           />
         </div>

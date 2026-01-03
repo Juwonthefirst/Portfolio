@@ -1,13 +1,10 @@
-"use client";
-
-import React from "react";
 import { FocusCards } from "@/components/ui/focus-cards";
 
 export function WorksSection() {
   const projects = [
     {
       title: "E-Commerce Platform",
-      src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2340&auto=format&fit=crop",
       category: "Web Development",
       description:
         "A high-performance e-commerce solution with real-time inventory and 3D product visualization.",
@@ -90,7 +87,7 @@ export function WorksSection() {
         <FocusCards cards={projects} />
 
         {/* View all link */}
-        <div className="mt-16 flex justify-center">
+        {/* <div className="mt-16 flex justify-center">
           <a
             href="#"
             className="group inline-flex items-center gap-3 font-nohemi text-sm uppercase tracking-widest text-white/60 hover:text-white transition-colors duration-300"
@@ -111,7 +108,7 @@ export function WorksSection() {
               />
             </svg>
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useState, memo } from "react";
+import { useEffect, useState, memo } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -18,7 +18,7 @@ export const FlipWords = memo(function FlipWords({
 
   useEffect(() => {
     if (isAnimating) return;
-    
+
     const timer = setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % words.length);
       setIsAnimating(true);

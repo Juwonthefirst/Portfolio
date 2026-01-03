@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useEffect, memo } from "react";
+import { useState, useRef, memo } from "react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface DistortionImageProps {
   src: string;
@@ -11,11 +12,11 @@ interface DistortionImageProps {
 }
 
 // SVG filter for displacement/ripple effect
-const DistortionFilter = memo(function DistortionFilter({ 
-  id, 
-  intensity 
-}: { 
-  id: string; 
+const DistortionFilter = memo(function DistortionFilter({
+  id,
+  intensity,
+}: {
+  id: string;
   intensity: number;
 }) {
   return (
@@ -79,7 +80,9 @@ export const DistortionImage = memo(function DistortionImage({
 }: DistortionImageProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const filterId = useRef(`distortion-${Math.random().toString(36).substr(2, 9)}`);
+  const filterId = useRef(
+    `distortion-${Math.random().toString(36).substr(2, 9)}`
+  );
 
   return (
     <div
@@ -88,11 +91,12 @@ export const DistortionImage = memo(function DistortionImage({
       onMouseLeave={() => setIsHovered(false)}
     >
       <DistortionFilter id={filterId.current} intensity={distortionIntensity} />
-      
-      <img
+
+      <Image
         src={src}
         alt={alt}
         loading="lazy"
+        fill
         onLoad={() => setIsLoaded(true)}
         className={cn(
           "w-full h-full object-cover transition-all duration-500",
@@ -104,10 +108,10 @@ export const DistortionImage = memo(function DistortionImage({
           transition: "filter 0.3s ease-out, transform 0.5s ease-out",
         }}
       />
-      
+
       {/* Glitch overlay on hover */}
       {isHovered && (
-        <div 
+        <div
           className="absolute inset-0 pointer-events-none mix-blend-screen opacity-30"
           style={{
             backgroundImage: `url(${src})`,

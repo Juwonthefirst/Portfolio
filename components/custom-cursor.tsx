@@ -8,7 +8,7 @@ export function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
-  
+
   // Use refs for animation values to avoid re-renders
   const mousePos = useRef({ x: 0, y: 0 });
   const cursorPos = useRef({ x: 0, y: 0 });
@@ -16,9 +16,11 @@ export function CustomCursor() {
 
   useEffect(() => {
     // Check for hover capability
-    const hasHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const hasHover = window.matchMedia(
+      "(hover: hover) and (pointer: fine)"
+    ).matches;
     setIsMobile(!hasHover);
-    
+
     if (!hasHover) return;
 
     // Simple lerp function
@@ -29,14 +31,14 @@ export function CustomCursor() {
     // Animation loop using RAF
     const animate = () => {
       // Lerp cursor position for smooth movement
-      cursorPos.current.x = lerp(cursorPos.current.x, mousePos.current.x, 0.15);
-      cursorPos.current.y = lerp(cursorPos.current.y, mousePos.current.y, 0.15);
-      
+      cursorPos.current.x = lerp(cursorPos.current.x, mousePos.current.x, 0.3);
+      cursorPos.current.y = lerp(cursorPos.current.y, mousePos.current.y, 0.3);
+
       // Apply transform using GPU-accelerated property
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate3d(${cursorPos.current.x}px, ${cursorPos.current.y}px, 0)`;
       }
-      
+
       rafId.current = requestAnimationFrame(animate);
     };
 
@@ -56,12 +58,12 @@ export function CustomCursor() {
       clearTimeout(hoverTimeout);
       hoverTimeout = setTimeout(() => {
         const target = e.target as HTMLElement;
-        const isInteractive = 
-          target.tagName === 'A' ||
-          target.tagName === 'BUTTON' ||
-          target.closest('a') !== null ||
-          target.closest('button') !== null ||
-          target.hasAttribute('data-cursor-hover');
+        const isInteractive =
+          target.tagName === "A" ||
+          target.tagName === "BUTTON" ||
+          target.closest("a") !== null ||
+          target.closest("button") !== null ||
+          target.hasAttribute("data-cursor-hover");
         setIsHovering(isInteractive);
       }, 10);
     };
@@ -69,18 +71,18 @@ export function CustomCursor() {
     const onMouseEnter = () => setIsVisible(true);
     const onMouseLeave = () => setIsVisible(false);
 
-    window.addEventListener('mousemove', onMouseMove, { passive: true });
-    window.addEventListener('mouseover', onMouseOver, { passive: true });
-    document.addEventListener('mouseenter', onMouseEnter);
-    document.addEventListener('mouseleave', onMouseLeave);
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    window.addEventListener("mouseover", onMouseOver, { passive: true });
+    document.addEventListener("mouseenter", onMouseEnter);
+    document.addEventListener("mouseleave", onMouseLeave);
 
     return () => {
       if (rafId.current) cancelAnimationFrame(rafId.current);
       clearTimeout(hoverTimeout);
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseover', onMouseOver);
-      document.removeEventListener('mouseenter', onMouseEnter);
-      document.removeEventListener('mouseleave', onMouseLeave);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseover", onMouseOver);
+      document.removeEventListener("mouseenter", onMouseEnter);
+      document.removeEventListener("mouseleave", onMouseLeave);
     };
   }, [isVisible]);
 
@@ -93,7 +95,7 @@ export function CustomCursor() {
       className="fixed top-0 left-0 pointer-events-none z-[99999] mix-blend-difference"
       style={{
         opacity: isVisible ? 1 : 0,
-        willChange: 'transform',
+        willChange: "transform",
       }}
     >
       <div

@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { NoiseOverlay } from "@/components/noise-overlay";
-import { CustomCursor } from "@/components/custom-cursor";
 import { LenisProvider } from "@/components/lenis-provider";
+import { CustomCursor } from "@/components/custom-cursor";
 
 // Harmond - Display font (fallback: Playfair Display)
 const harmond = Playfair_Display({
@@ -24,23 +24,27 @@ const nohemi = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Creative Developer | Digital Noir Portfolio",
+  title: "JayCode | FullStack Developer",
   description:
-    "Award-winning creative developer specializing in interactive digital experiences, high-end UI, and 3D web development.",
+    "A creative developer specializing in interactive digital experiences, high-end UI, and 3D web development.",
   keywords: [
+    "Juwon",
+    "Juwon Portfolio",
+    "JayCode Portfolio",
+    "JayCode",
+    "FullStack Developer",
     "Creative Developer",
     "Web Developer",
-    "UI/UX",
     "Three.js",
     "React",
     "Next.js",
     "Portfolio",
   ],
-  authors: [{ name: "Creative Developer" }],
+  authors: [{ name: "JayCode" }],
   openGraph: {
-    title: "Creative Developer | Digital Noir Portfolio",
+    title: "JayCode | FullStack Developer",
     description:
-      "Award-winning creative developer specializing in interactive digital experiences.",
+      "A creative developer specializing in interactive digital experiences.",
     type: "website",
   },
 };
@@ -66,10 +70,9 @@ export default function RootLayout({
         <LenisProvider>
           {/* Noise overlay - Film grain effect */}
           <NoiseOverlay />
-          
+
           {/* Custom cursor - Desktop only */}
           <CustomCursor />
-          
           {/* Main content */}
           <main>{children}</main>
         </LenisProvider>

@@ -1,17 +1,14 @@
-"use client";
-
-import React, { memo } from "react";
 import { EncryptedText } from "@/components/ui/encrypted-text";
 import { cn } from "@/lib/utils";
 
 // Simple CSS-based glow text
-const GlowText = memo(function GlowText({
+const GlowText = ({
   children,
   className,
 }: {
   children: React.ReactNode;
   className?: string;
-}) {
+}) => {
   return (
     <span
       className={cn(
@@ -20,20 +17,14 @@ const GlowText = memo(function GlowText({
         className
       )}
       style={{
-        textShadow: 'none',
-      }}
-      onMouseEnter={(e) => {
-        (e.target as HTMLElement).style.textShadow = '0 0 20px rgba(255,255,255,0.4)';
-      }}
-      onMouseLeave={(e) => {
-        (e.target as HTMLElement).style.textShadow = 'none';
+        textShadow: "0 0 20px rgba(255,255,255,0.4)",
       }}
       data-cursor-hover
     >
       {children}
     </span>
   );
-});
+};
 
 export function AboutSection() {
   const skills = [
@@ -41,10 +32,10 @@ export function AboutSection() {
     "Next.js",
     "TypeScript",
     "Three.js",
-    "WebGL",
-    "Framer Motion",
-    "Node.js",
     "Tailwind CSS",
+    "Django",
+    "FastAPI",
+    "Redis",
   ];
 
   return (
@@ -73,25 +64,30 @@ export function AboutSection() {
                 text="The Creative Mind"
                 encryptedClassName="text-white/30"
                 revealedClassName="text-white"
-                revealDelayMs={40}
+                revealDelayMs={60}
               />
             </h2>
 
             {/* Bio paragraphs */}
             <div className="space-y-6 font-nohemi text-lg md:text-xl leading-relaxed text-white/60 max-w-3xl">
               <p>
-                I&apos;m a creative developer passionate about building{" "}
+                I&apos;m a creative developer passionate about crafting{" "}
                 <GlowText className="text-white">
-                  exceptional digital experiences
+                  captivating digital experiences
                 </GlowText>{" "}
                 that push the boundaries of what&apos;s possible on the web.
               </p>
 
               <p>
                 My approach combines{" "}
-                <GlowText className="text-white">Swiss design principles</GlowText>{" "}
-                with cutting-edge technology to create work that&apos;s both
-                beautiful and performant.
+                <GlowText className="text-white">
+                  captivating digital experiences
+                </GlowText>{" "}
+                on the Frontend with{" "}
+                <GlowText className="text-white">
+                  secure, scalable and performant
+                </GlowText>{" "}
+                backend services.
               </p>
             </div>
 
@@ -110,7 +106,6 @@ export function AboutSection() {
                       "hover:border-white/30 hover:bg-white/10 hover:text-white",
                       "transition-all duration-300"
                     )}
-                    data-cursor-hover
                   >
                     {skill}
                   </span>
@@ -121,10 +116,9 @@ export function AboutSection() {
             {/* Stats */}
             <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { value: "5+", label: "Years Experience" },
-                { value: "50+", label: "Projects Completed" },
-                { value: "30+", label: "Happy Clients" },
-                { value: "∞", label: "Cups of Coffee" },
+                { value: "1", label: "Years Experience" },
+                { value: "30+", label: "Projects Completed" },
+                { value: "∞", label: "Love of the craft" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center md:text-left">
                   <div className="font-harmond text-4xl md:text-5xl font-bold text-white">

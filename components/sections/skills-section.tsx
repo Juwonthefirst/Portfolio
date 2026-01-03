@@ -1,15 +1,12 @@
-"use client";
-
-import React, { memo } from "react";
 import { cn } from "@/lib/utils";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import {
   IconCode,
-  IconPalette,
+  IconServer,
   IconDeviceLaptop,
   IconRocket,
   IconBrandThreejs,
-  IconApiApp,
+  IconShield,
 } from "@tabler/icons-react";
 
 interface SkillCardProps {
@@ -20,15 +17,10 @@ interface SkillCardProps {
 }
 
 // Skill card with glowing border gradient effect
-const SkillCard = memo(function SkillCard({
-  area,
-  icon,
-  title,
-  description,
-}: SkillCardProps) {
+const SkillCard = ({ area, icon, title, description }: SkillCardProps) => {
   return (
     <li className={cn("min-h-[14rem] list-none", area)}>
-      <div className="relative h-full rounded-2xl border border-white/10 p-2 md:rounded-3xl md:p-3 bg-black-50">
+      <div className="relative h-full rounded-2xl border border-white/10 p-2 md:rounded-3xl md:p-2 bg-black-50">
         {/* Glowing border gradient effect */}
         <GlowingEffect
           spread={40}
@@ -38,7 +30,7 @@ const SkillCard = memo(function SkillCard({
           inactiveZone={0.01}
           borderWidth={2}
         />
-        
+
         <div
           className={cn(
             "relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-8",
@@ -65,7 +57,7 @@ const SkillCard = memo(function SkillCard({
       </div>
     </li>
   );
-});
+};
 
 export function SkillsSection() {
   const skills = [
@@ -74,14 +66,14 @@ export function SkillsSection() {
       icon: <IconCode className="h-6 w-6 text-accent-blue" />,
       title: "Frontend Development",
       description:
-        "Building performant, accessible web applications with React, Next.js, and TypeScript.",
+        "Crafting performant, accessible web applications with React, Next.js, and TypeScript.",
     },
     {
       area: "md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]",
-      icon: <IconPalette className="h-6 w-6 text-accent-blue" />,
-      title: "UI/UX Design",
+      icon: <IconServer className="h-6 w-6 text-accent-blue" />,
+      title: "Backend Development",
       description:
-        "Creating intuitive interfaces with a focus on user experience and modern aesthetics.",
+        "Building scalable, secure and performant backend services with Django, FastAPI and Node.js.",
     },
     {
       area: "md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]",
@@ -99,16 +91,17 @@ export function SkillsSection() {
     },
     {
       area: "md:[grid-area:3/1/4/7] xl:[grid-area:2/8/3/10]",
-      icon: <IconRocket className="h-6 w-6 text-accent-blue" />,
+      icon: <IconRocket className="h-6 w-6 text-accent-blue " />,
       title: "Performance",
-      description: "Optimizing for 60fps animations and sub-second load times.",
+      description:
+        "Optimizing for 60fps animations and sub-second api response.",
     },
     {
       area: "md:[grid-area:3/7/4/13] xl:[grid-area:2/10/3/13]",
-      icon: <IconApiApp className="h-6 w-6 text-accent-blue" />,
-      title: "API Integration",
+      icon: <IconShield className="h-6 w-6 text-accent-blue" />,
+      title: "Security",
       description:
-        "Seamless integration with REST APIs, GraphQL, and third-party services.",
+        "Experienced in implementing secure coding practices, vulnerability assessment, and defense-in-depth strategies.",
     },
   ];
 
