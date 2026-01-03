@@ -1,54 +1,37 @@
 import { FocusCards } from "@/components/ui/focus-cards";
 
+const githubProfileLink = "https://github.com/Juwonthefirst/";
 export function WorksSection() {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Beep",
       src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2340&auto=format&fit=crop",
-      category: "Web Development",
-      description:
-        "A high-performance e-commerce solution with real-time inventory and 3D product visualization.",
-      link: "#",
+      category: "Chat platform",
+      description: "A real-time chat platform with built in call features.",
+      link: githubProfileLink + "beep",
     },
     {
-      title: "Interactive Dashboard",
+      title: "JBA ventures",
       src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2340&auto=format&fit=crop",
-      category: "UI/UX Design",
+      category: "Real Estate E-commerce platform",
       description:
-        "Data visualization dashboard with smooth animations and intuitive user experience.",
-      link: "#",
+        "An E-commerce platform for agents to advertise their real estate properties.",
+      link: githubProfileLink + "JBA_ventures",
     },
     {
-      title: "Brand Identity System",
+      title: "Vite Games",
       src: "https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=2340&auto=format&fit=crop",
-      category: "Branding",
+      category: "Game Store",
       description:
-        "Complete brand identity system including logo, typography, and digital guidelines.",
-      link: "#",
+        "An E-commerce platform for selling games, featuring an attention grabbing landing page.",
+      link: githubProfileLink + "game-store",
     },
     {
-      title: "WebGL Experience",
+      title: "StratoVault",
       src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2532&auto=format&fit=crop",
-      category: "3D / WebGL",
-      description:
-        "Immersive 3D experience built with Three.js featuring interactive storytelling.",
-      link: "#",
-    },
-    {
-      title: "Mobile Application",
-      src: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2340&auto=format&fit=crop",
-      category: "Mobile",
-      description:
-        "Cross-platform mobile app with seamless animations and offline-first architecture.",
-      link: "#",
-    },
-    {
-      title: "SaaS Platform",
-      src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2340&auto=format&fit=crop",
-      category: "Full Stack",
-      description:
-        "Enterprise SaaS platform with real-time collaboration and AI-powered features.",
-      link: "#",
+      category: "File Storage Platform",
+      description: "A website for storing and sharing files.",
+      link: githubProfileLink + "File-upload",
     },
   ];
 
