@@ -135,7 +135,7 @@ const NoiseGridBackground = () => {
 
       {/* Secondary film grain noise */}
       <div
-        className="absolute inset-0 opacity-[0.12] pointer-events-none animate-noise"
+        className="absolute inset-0 opacity-[0.1] pointer-events-none animate-noise"
         style={{
           backgroundImage: "url('/images/noise.webp')",
           backgroundRepeat: "repeat",
