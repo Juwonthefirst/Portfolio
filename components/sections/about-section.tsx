@@ -106,6 +106,7 @@ export function AboutSection() {
                       "hover:border-white/30 hover:bg-white/10 hover:text-white",
                       "transition-all duration-300"
                     )}
+                    data-cursor-hover
                   >
                     {skill}
                   </span>
