@@ -226,10 +226,13 @@ export function FooterSection() {
           {/* Social links with magnetic effect */}
           <div className="mt-16 flex items-center gap-6 flex-wrap justify-center">
             {[
-              { name: "Twitter", link: "#" },
+              //{ name: "Twitter", link: "#" },
               { name: "GitHub", link: "https://github.com/Juwonthefirst" },
-              { name: "LinkedIn", link: "#" },
-              { name: "Dribbble", link: "#" },
+              {
+                name: "LinkedIn",
+                link: "https://linkedin.com/in/juwon-ajibola-70b4b834b",
+              },
+              //{ name: "Dribbble", link: "#" },
             ].map((social) => (
               <MagneticButton
                 key={social.name}
