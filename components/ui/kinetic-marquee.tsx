@@ -83,7 +83,7 @@ export const KineticMarquee = memo(function KineticMarquee({
     >
       <div
         ref={innerRef}
-        className="flex whitespace-nowrap mb-3.5 md:mb-2.5 lg:mb-1.5"
+        className="flex whitespace-nowrap mb-4 md:mb-3 lg:mb-2"
         style={{
           transform: `translateX(${translateX}px) skewX(${skew}deg)`,
           willChange: "transform",
