@@ -251,7 +251,7 @@ export function HeroSection() {
               textShadow: "0 0 80px rgba(255,255,255,0.1)",
             }}
           >
-            INNOVATE
+            JAYCODE
           </h1>
 
           {/* Flip words line */}
