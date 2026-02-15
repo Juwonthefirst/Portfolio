@@ -5,14 +5,14 @@ export function WorksSection() {
   const projects = [
     {
       title: "Beep",
-      src: "/public/images/beep.png",
+      src: "/images/beep.png",
       category: "Chat platform",
       description: "A real-time chat platform with built in call features.",
       link: githubProfileLink + "beep",
     },
     {
       title: "JBA ventures",
-      src: "/public/images/jba.png",
+      src: "/images/jba.png",
       category: "Real Estate E-commerce platform",
       description:
         "An E-commerce platform for agents to advertise their real estate properties.",
@@ -20,7 +20,7 @@ export function WorksSection() {
     },
     {
       title: "Vite Games",
-      src: "/public/images/vitegames.png",
+      src: "/images/vitegames.png",
       category: "Game Store",
       description:
         "An E-commerce platform for selling games, featuring an attention grabbing landing page.",
